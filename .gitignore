@@ -1,0 +1,57 @@
+# --- Global / OS ---
+.DS_Store
+Thumbs.db
+*.log
+
+# --- IDEs ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Backend (fastapi folder) ---
+fastapi/venv/
+fastapi/env/
+fastapi/ENV/
+fastapi/__pycache__/
+fastapi/*.py[cod]
+fastapi/.Python
+fastapi/.pytest_cache/
+fastapi/.coverage
+fastapi/htmlcov/
+# Specifically ignore the env file inside the backend
+fastapi/.env
+# RAG Data
+fastapi/data/chroma/
+fastapi/data/github_repos/
+fastapi/data/uploads/
+# ChromaDB
+fastapi/*.chroma
+# Temporary files
+fastapi/*.tmp
+
+# --- Backend (render folder) ---
+render/venv/
+render/__pycache__/
+render/*.py[cod]
+render/.Python
+render/.pytest_cache/
+render/.coverage
+render/htmlcov/
+# Specifically ignore the env file inside the backend
+render/.env
+# Temporary files
+render/*.tmp
+
+# --- Frontend (react folder) ---
+react/node_modules/
+react/build/
+react/dist/
+react/.env
+react/.env.local
+react/.eslintcache
+
+# --- Root Level ---
+.env
+.env.local
+*.txt

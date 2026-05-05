@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIVerse Widget Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .demo-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #9333ea;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        code {
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .config-option {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 3px solid #9333ea;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo-section">
+        <h1>🤖 AIVerse Chat Widget Demo</h1>
+        <p>This page demonstrates how to embed the AIVerse chat widget on any website.</p>
+    </div>
+
+    <div class="demo-section">
+        <h2>📋 Basic Usage</h2>
+        <pre><code>&lt;!-- Include the widget loader script --&gt;
+&lt;script src="http://localhost:3000/widget-loader.js"&gt;&lt;/script&gt;
+
+&lt;!-- Initialize the widget --&gt;
+&lt;script&gt;
+    new AIVerseWidget({
+        collection: 'my-docs',
+        guestAllowed: true,
+        title: 'Help Assistant'
+    });
+&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="demo-section">
+        <h2>⚙️ Configuration Options</h2>
+
+        <div class="config-option">
+            <strong>collection</strong> (string): RAG collection name for document search
+            <br><code>collection: 'my-docs'</code>
+        </div>
+
+        <div class="config-option">
+            <strong>provider</strong> (string): AI provider (groq, openai, anthropic)
+            <br><code>provider: 'groq'</code>
+        </div>
+
+        <div class="config-option">
+            <strong>model</strong> (string): AI model name
+            <br><code>model: 'llama-3.3-70b-versatile'</code>
+        </div>
+
+        <div class="config-option">
+            <strong>guestAllowed</strong> (boolean): Allow unauthenticated users
+            <br><code>guestAllowed: true</code>
+        </div>
+
+        <div class="config-option">
+            <strong>initialMessage</strong> (string): First message from assistant
+            <br><code>initialMessage: 'Welcome! How can I help?'</code>
+        </div>
+
+        <div class="config-option">
+            <strong>primaryColor</strong> (string): Widget theme color (hex)
+            <br><code>primaryColor: '#9333ea'</code>
+        </div>
+
+        <div class="config-option">
+            <strong>position</strong> (string): bottom-right or bottom-left
+            <br><code>position: 'bottom-right'</code>
+        </div>
+
+        <div class="config-option">
+            <strong>title</strong> (string): Widget header title
+            <br><code>title: 'AI Assistant'</code>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>🎯 Use Cases</h2>
+
+        <h3>1. Documentation Assistant (RAG-enabled)</h3>
+        <pre><code>new AIVerseWidget({
+    collection: 'product-docs',
+    title: 'Documentation Helper',
+    initialMessage: 'Ask me anything about our product!',
+    guestAllowed: true
+});</code></pre>
+
+        <h3>2. Customer Support (Login required)</h3>
+        <pre><code>new AIVerseWidget({
+    title: 'Customer Support',
+    guestAllowed: false,
+    primaryColor: '#0066cc'
+});</code></pre>
+
+        <h3>3. Code Assistant (GitHub repo RAG)</h3>
+        <pre><code>new AIVerseWidget({
+    collection: 'react-codebase',
+    title: 'Code Assistant',
+    initialMessage: 'Ask me about the React codebase!',
+    primaryColor: '#61dafb'
+});</code></pre>
+    </div>
+
+    <div class="demo-section">
+        <h2>✨ Live Demo</h2>
+        <p>The widget is active on this page! Click the button in the bottom-right corner to try it.</p>
+    </div>
+
+    <!-- Include widget loader -->
+    <script type="module" crossorigin src="http://localhost:3000/widget-loader.js"></script>
+
+    <!-- Initialize widget -->
+    <script>
+        window.addEventListener('load', () => {
+            if (typeof AIVerseWidget !== 'undefined') {
+                new AIVerseWidget({
+                    title: 'AIVerse Assistant',
+                    collection: 'Versana_EcoSystem',
+                    initialMessage: 'Hello! This is a demo of the embeddable chat widget.',
+                    guestAllowed: false,
+                    primaryColor: '#9333ea',
+                    apiUrl: 'http://localhost:3000'
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

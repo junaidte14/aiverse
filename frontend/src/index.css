@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* 1. Configuration & Theme */
+@theme {
+  --color-primary-500: #3b82f6;
+  --color-secondary-500: #8b5cf6;
+  --color-border: #e5e7eb;
+
+  /* Added Gray scales for deeper dark mode support */
+  --color-gray-950: #030712;
+  --color-gray-900: #111827;
+  --color-gray-800: #1f2937;
+}
+
+/* 2. Base Styles */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    /* Set a default transition for theme switching */
+    @apply transition-colors duration-300;
+    /* Light mode background */
+    @apply bg-gray-50 text-gray-900 antialiased;
+    /* Dark mode background */
+    @apply dark:bg-gray-950 dark:text-gray-100;
+  }
+
+  option {
+    @apply text-gray-900 bg-white dark:bg-gray-800 dark:text-white;
+  }
+}
+
+/* 3. Component Classes */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:opacity-90 hover:scale-[1.02] active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-transparent dark:border-gray-800;
+  }
+
+  /* Custom Scrollbar for the Sidebar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));

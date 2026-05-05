@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./fastapi
+    container_name: aiverse_backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: aiverse_frontend
+    ports:
+      - "3000:80"
+
+  db:
+    image: postgres:15
+    container_name: aiverse_db
+    restart: always
+    environment:
+      POSTGRES_USER: aiverse
+      POSTGRES_PASSWORD: aiverse
+      POSTGRES_DB: aiverse
+    ports:
+      - "5432:5432"
